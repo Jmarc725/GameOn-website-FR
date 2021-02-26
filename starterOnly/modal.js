@@ -1,5 +1,5 @@
 function editNav() {
-  var myTopNav = document.getElementById("myTopnav");
+  const myTopNav = document.getElementById("myTopnav");
   if (myTopNav.className === "topnav") {
     myTopNav.className += " responsive";
   } else {
@@ -14,7 +14,6 @@ const formData = document.querySelectorAll(".formData");
 const close = document.querySelector('.close');
 
 // launch modal event
-// modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
