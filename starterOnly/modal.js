@@ -27,6 +27,18 @@ close.addEventListener('click', () => {
   modalbg.style.display = "none";
 });
 
+// 1. Je sélectionne mon noeud qui correspond au formulaire HTML
+const reservationForm = document.querySelector('.reservation-form');
+const firstNameInput = document.querySelector('#first');
 
 
+
+// 2. J'écoute l'évevenement submit de mon formulaire
+reservationForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  console.log("=====")
+  console.log(firstNameInput.value)
+  console.log("=====")
+})
 
