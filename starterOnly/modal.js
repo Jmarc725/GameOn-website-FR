@@ -28,5 +28,50 @@ close.addEventListener('click', () => {
 });
 
 
+const reservationForm = document.querySelector('.reservation-form');
+
+const firstNameInput = document.querySelector('#first');
+const firstNameErrorMessage = document.querySelector('.first-name-error-message')
+
+const lastNameInput = document.querySelector('#last');
+const lastNameErrorMessage = document.querySelector('.last-name-error-message')
+
+
+function checkFirstName() {
+  const isFirstNameValid = firstNameInput.value.length > 2
+
+  if (isFirstNameValid) {
+    firstNameErrorMessage.classList.add('hidden')
+  } else {
+    firstNameErrorMessage.classList.remove('hidden')
+  }
+
+  return isFirstNameValid
+}
+
+
+const checkLastName = () => {
+  const isLastNameValid = lastNameInput.value.length > 2
+  
+  if (isLastNameValid) {
+    lastNameErrorMessage.classList.add('hidden')
+  } else {
+    lastNameErrorMessage.classList.remove('hidden')
+  }
+
+  return isLastNameValid
+}
+
+
+reservationForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  if (checkFirstName() && checkLastName()) {
+    console.log("Tout est ok")
+  } else {
+    console.log("Il y a un problème")
+  }
+
+})
 
 

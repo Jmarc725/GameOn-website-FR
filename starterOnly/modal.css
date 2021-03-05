@@ -30,6 +30,10 @@ img {
   padding-right: 1rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .topnav {
   overflow: hidden;
   margin: 3.5%;
