@@ -31,10 +31,19 @@ close.addEventListener('click', () => {
 const reservationForm = document.querySelector('.reservation-form');
 
 const firstNameInput = document.querySelector('#first');
-const firstNameErrorMessage = document.querySelector('.first-name-error-message')
+const firstNameErrorMessage = document.querySelector('.first-name-error-message');
 
 const lastNameInput = document.querySelector('#last');
-const lastNameErrorMessage = document.querySelector('.last-name-error-message')
+const lastNameErrorMessage = document.querySelector('.last-name-error-message');
+
+const emailInput = document.querySelector('#email');
+const emailInputErrorMessage = document.querySelector('.email-error-message');
+
+const tournamentNumberInput = document.querySelector('#quantity');
+const tournamentNumberInputErrorMessage = document.querySelector('.number-error-message');
+
+const checkBoxChecked = document.querySelector('#location1');
+
 
 
 function checkFirstName() {
@@ -62,6 +71,24 @@ const checkLastName = () => {
   return isLastNameValid
 }
 
+function checkEmailInput(){
+  const isEmailValid = emailInput
+}
+
+function checkNumberInput(){
+  const isNumberValid = tournamentNumberInput > 1 && tournamentNumberInput > 100;
+
+  if (isNumberValid) { 
+    tournamentNumberInput.classList.add('hidden')
+      } else {
+        tournamentNumberInput.classList.remove('hidden')
+      }
+      return isNumberValid 
+}
+
+function checkBox(){
+  location1.checked===true;
+}
 
 reservationForm.addEventListener('submit', function(event) {
   event.preventDefault();
