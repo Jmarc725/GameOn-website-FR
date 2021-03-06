@@ -87,7 +87,7 @@ function checkNumberInput(){
 }
 
 function checkBox(){
-  location1.checked===true;
+  const isCheckboxChecked = checkBoxChecked.checked;
 }
 
 reservationForm.addEventListener('submit', function(event) {
