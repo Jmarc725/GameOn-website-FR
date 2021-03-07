@@ -42,8 +42,9 @@ const emailInputErrorMessage = document.querySelector('.email-error-message');
 const tournamentNumberInput = document.querySelector('#quantity');
 const tournamentNumberInputErrorMessage = document.querySelector('.number-error-message');
 
-const checkBoxChecked = document.querySelector('#location1');
+const checkBoxChecked = document.querySelector('#location1').checked=true;
 
+const checkboxCondition = document.querySelector('#checkbox1').checked=true;
 
 
 function checkFirstName() {
@@ -75,20 +76,13 @@ function checkEmailInput(){
   const isEmailValid = emailInput
 }
 
-function checkNumberInput(){
-  const isNumberValid = tournamentNumberInput > 1 && tournamentNumberInput > 100;
-
-  if (isNumberValid) { 
-    tournamentNumberInput.classList.add('hidden')
-      } else {
-        tournamentNumberInput.classList.remove('hidden')
-      }
-      return isNumberValid 
+function checkNumberInput(value){
+  const isNumberValid = tournamentNumberInput.value = 1;
+return value;
 }
 
-function checkBox(){
-  const isCheckboxChecked = checkBoxChecked.checked;
-}
+
+ 
 
 reservationForm.addEventListener('submit', function(event) {
   event.preventDefault();
