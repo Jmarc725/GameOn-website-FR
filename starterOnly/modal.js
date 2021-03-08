@@ -72,8 +72,14 @@ const checkLastName = () => {
   return isLastNameValid
 }
 
-function checkEmailInput(){
-  const isEmailValid = emailInput
+function checkEmailInput(emailInput){
+  const email = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+
+  if (emailInput.value.match(email)){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
@@ -81,8 +87,9 @@ function checkEmailInput(){
 reservationForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  if (checkFirstName() && checkLastName()) {
-    console.log("Tout est ok")
+  if (checkFirstName() && checkLastName() && checkEmailInput){
+    // console.log("Tout est ok")
+    return send
   } else {
     console.log("Il y a un problème")
   }
