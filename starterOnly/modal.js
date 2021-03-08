@@ -39,7 +39,7 @@ const lastNameErrorMessage = document.querySelector('.last-name-error-message');
 const emailInput = document.querySelector('#email');
 const emailInputErrorMessage = document.querySelector('.email-error-message');
 
-const tournamentNumberInput = document.querySelector('#quantity');
+const tournamentNumberInput = document.querySelector('#quantity').value = "1";
 const tournamentNumberInputErrorMessage = document.querySelector('.number-error-message');
 
 const checkBoxChecked = document.querySelector('#location1').checked=true;
@@ -76,10 +76,14 @@ function checkEmailInput(){
   const isEmailValid = emailInput
 }
 
-function checkNumberInput(value){
-  const isNumberValid = tournamentNumberInput.value = 1;
-return value;
-}
+function checkNumberInput(tournamentNumberInput){
+  if(isNaN(tournamentNumberInput)) {
+    return "";
+  } else {
+    return 1;
+  }
+  }
+
 
 
  
