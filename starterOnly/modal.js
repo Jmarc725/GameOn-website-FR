@@ -76,17 +76,7 @@ function checkEmailInput(){
   const isEmailValid = emailInput
 }
 
-function checkNumberInput(tournamentNumberInput){
-  if(isNaN(tournamentNumberInput)) {
-    return "";
-  } else {
-    return 1;
-  }
-  }
 
-
-
- 
 
 reservationForm.addEventListener('submit', function(event) {
   event.preventDefault();
