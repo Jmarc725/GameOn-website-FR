@@ -27,7 +27,7 @@ close.addEventListener('click', () => {
   modalbg.style.display = "none";
 });
 
-
+// Je déclare mes variables
 const reservationForm = document.querySelector('.reservation-form');
 
 const firstNameInput = document.querySelector('#first');
@@ -40,13 +40,13 @@ const emailInput = document.querySelector('#email');
 const emailInputErrorMessage = document.querySelector('.email-error-message');
 
 const tournamentNumberInput = document.querySelector('#quantity').value = "1";
-const tournamentNumberInputErrorMessage = document.querySelector('.number-error-message');
 
 const checkBoxChecked = document.querySelector('#location1').checked=true;
 
 const checkboxCondition = document.querySelector('#checkbox1').checked=true;
 
 
+// Je déclre mes fonctions
 function checkFirstName() {
   const isFirstNameValid = firstNameInput.value.length > 2
 
@@ -72,12 +72,15 @@ const checkLastName = () => {
   return isLastNameValid
 }
 
+
 function checkEmailInput(emailInput){
   const email = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
 
   if (emailInput.value.match(email)){
+    emailInputErrorMessage.classList.add('hidden')
     return true;
   } else {
+    emailInputErrorMessage.classList.remove('hidden')
     return false;
   }
 }
@@ -88,8 +91,7 @@ reservationForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
   if (checkFirstName() && checkLastName() && checkEmailInput){
-    // console.log("Tout est ok")
-    return send
+    console.log("Tout est ok")
   } else {
     console.log("Il y a un problème")
   }

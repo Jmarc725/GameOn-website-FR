@@ -238,7 +238,7 @@ input {
 }
 
 .first-name-error-message, .last-name-error-message, 
-.email-error-message, .number-error-message {
+.email-error-message, .error-message-birthdate, .error-message-conditions {
   font-size: 0.5em;
   margin-top: 5px;
 }
