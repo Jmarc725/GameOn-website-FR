@@ -39,12 +39,11 @@ const lastNameErrorMessage = document.querySelector('.last-name-error-message');
 const emailInput = document.querySelector('#email');
 const emailInputErrorMessage = document.querySelector('.email-error-message');
 
-const tournamentNumberInput = document.querySelector('#quantity').value = "1";
+const tournamentNumberInput = document.querySelector('#quantity');
 
-const checkBoxChecked = document.querySelector('#location1').checked=true;
+// const checkboxCondition = document.querySelector('#checkbox1');
 
-const checkboxCondition = document.querySelector('#checkbox1').checked=true;
-
+const citiesLocation = document.querySelectorAll('.citiesLocation input')
 
 // Je déclre mes fonctions
 function checkFirstName() {
@@ -73,16 +72,31 @@ const checkLastName = () => {
 }
 
 
-function checkEmailInput(emailInput){
-  const email = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+function checkEmailInput(){
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  
+  const isEmailValid = re.test(String(emailInput.value).toLowerCase());
 
-  if (emailInput.value.match(email)){
+  if (isEmailValid) {
     emailInputErrorMessage.classList.add('hidden')
-    return true;
   } else {
     emailInputErrorMessage.classList.remove('hidden')
-    return false;
   }
+
+  return isEmailValid
+}
+
+
+function checkCityLocation() {
+  let isCityLocationValid = false
+
+  for (let i = 0; i < citiesLocation.length; i++) {
+    if (citiesLocation[i].checked) {
+      isCityLocationValid = true
+    }
+  }
+
+  return isCityLocationValid
 }
 
 
@@ -90,7 +104,7 @@ function checkEmailInput(emailInput){
 reservationForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  if (checkFirstName() && checkLastName() && checkEmailInput){
+  if (checkFirstName() && checkLastName() && checkEmailInput() && checkCityLocation()){
     console.log("Tout est ok")
   } else {
     console.log("Il y a un problème")

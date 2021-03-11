@@ -239,8 +239,12 @@ input {
 
 .first-name-error-message, .last-name-error-message, 
 .email-error-message, .error-message-birthdate, .error-message-conditions {
-  font-size: 0.5em;
-  margin-top: 5px;
+  font-size: 0.4em;
+  color: #e54858;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: right;
+  transition: 0.3s;
 }
 /* 
 input[data-error]::after {
