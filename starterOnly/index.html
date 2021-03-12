@@ -71,31 +71,34 @@
               
               <div class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" name="quantity" id="quantity"  min="0" max="99">
-                <!-- <div class="number-error-message">Veuillez entrer un nombre entre 1 et 99</div> -->
+                <input type="number" class="text-control" name="quantity" id="quantity">
+                <div class="number-error-message hidden">Veuillez entrer un nombre</div>
               </div>
               
               <p class="text-label">Quelles villes ?</p>
               
               <div class="formData citiesLocation">
+                
                 <input class="checkbox-input" type="radio" name="location" value="New York" id="location1"/>
                 <label class="checkbox-label" for="location1"><span class="checkbox-icon"></span>New York</label>
-                  
+
                 <input class="checkbox-input" type="radio" name="location" value="San Francisco" id="location2"/>
                 <label class="checkbox-label" for="location2"><span class="checkbox-icon"></span>San Francisco</label>
-                
+
                 <input class="checkbox-input" type="radio" name="location" value="Seattle" id="location3"/>
                 <label class="checkbox-label" for="location3"><span class="checkbox-icon"></span>Seattle</label>
-                
+
                 <input class="checkbox-input" type="radio" name="location" value="Chicago" id="location4"/>
                 <label class="checkbox-label" for="location4"><span class="checkbox-icon"></span>Chicago</label>
-                
+
                 <input class="checkbox-input" type="radio" name="location" value="Boston" id="location5"/>
                 <label class="checkbox-label" for="location5"><span class="checkbox-icon"></span>Boston</label>
-                
+
                 <input class="checkbox-input" type="radio" name="location" value="Portland" id="location6"/>
                 <label class="checkbox-label" for="location6"><span class="checkbox-icon"></span>Portland</label>
               </div>
+              <div class="citiesLocation-error-message hidden">Veuillez sélectionner une ville</div>
+
 
               <div class="formData">
                 <input class="checkbox-input" type="checkbox" name="conditions" id="checkbox1" />
