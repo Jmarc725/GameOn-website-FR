@@ -43,7 +43,7 @@ const tournamentNumberInput = document.querySelector('#quantity')
 const tournamentNumberErrorMessage = document.querySelector('.number-error-message')
 
 const citiesLocation = document.querySelectorAll('.citiesLocation input')
-const citiesLocationErrorMessage = document.querySelector('citiesLocation-error-message')
+const citiesLocationErrorMessage = document.querySelector('.citiesLocation-error-message')
 
 
 // Je déclre mes fonctions
@@ -90,9 +90,9 @@ function checkCityLocation() {
   for (let i = 0; i < citiesLocation.length; i++) {
     if (citiesLocation[i].checked) {
       isCityLocationValid = true
-      citiesLocationErrorMessage.classList.add('hidden')
-    } else {
       citiesLocationErrorMessage.classList.remove('hidden')
+    } else {
+      citiesLocationErrorMessage.classList.add('hidden')
     }
   }
   return isCityLocationValid
@@ -100,23 +100,30 @@ function checkCityLocation() {
 
 
 function checkNumberInput(){
-  const isNumberValid = parseInt(tournamentNumberInput)
+  let isNumberValid = parseInt(tournamentNumberInput.value)
+  let emptyField = tournamentNumberInput.value.length < 1 
   
-if(isNaN(isNumberValid)){
-  isNumberValid = false
+if(isNaN(isNumberValid) && emptyField){
     tournamentNumberErrorMessage.classList.remove('hidden')
   } else {
     tournamentNumberErrorMessage.classList.add('hidden')
   }
+  
   return isNumberValid
 }
+
+// function errorMessage(){
+//   if (checkFirstName() || checkLastName() || checkEmailInput() || checkCityLocation() || checkNumberInput){
+    
+//   }
+// }
 
 
 // J'écoute l'évenement submit pour valider mon formulaire
 reservationForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  if (checkFirstName() && checkLastName() && checkEmailInput() && checkCityLocation() && checkNumberInput){
+  if (checkFirstName() && checkLastName() && checkEmailInput() && checkCityLocation() && checkNumberInput()){
     console.log("Tout est ok")
   } else {
     console.log("Il y a un problème")
