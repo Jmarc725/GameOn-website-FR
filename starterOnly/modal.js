@@ -27,6 +27,8 @@ close.addEventListener('click', () => {
   modalbg.style.display = "none"
 });
 
+
+
 // Je déclare mes variables
 const reservationForm = document.querySelector('.reservation-form')
 
@@ -50,6 +52,9 @@ const citiesLocationErrorMessage = document.querySelector('.citiesLocation-error
 
 const requiredCheckbox = document.querySelector('#checkbox1')
 const requiredCheckboxErrorMessage = document.querySelector('.error-message-conditions')
+
+let succesValidation = "Votre formulaire a bien été envoyé";
+
 
 
 // Je déclre mes fonctions
@@ -91,13 +96,13 @@ function checkEmailInput() {
 
 
 function checkCalendarInput(){
-  let isCalendarValid = false
+  const isCalendarValid = calendarInput.value;
 
-  if (calendarInput.checked){
-    isCalendarValid = true
-    calendarErrorMessage.classList.add('hidden')
-  } else {
+  if (isCalendarValid===''){
     calendarErrorMessage.classList.remove('hidden')
+    return false
+  } else {
+    calendarErrorMessage.classList.add('hidden')
   }
   return isCalendarValid
 }
@@ -106,10 +111,10 @@ function checkCalendarInput(){
 
 function checkNumberInput(){
   let isNumberValid = parseInt(tournamentNumberInput.value)
-  let emptyField = tournamentNumberInput.value.length < 1 
   
-if(isNaN(isNumberValid) && emptyField){
+if(isNaN(isNumberValid)){
     tournamentNumberErrorMessage.classList.remove('hidden')
+    return false
   } else {
     tournamentNumberErrorMessage.classList.add('hidden')
   }
@@ -152,9 +157,13 @@ reservationForm.addEventListener('submit', function(event) {
 
   if (checkFirstName() && checkLastName() && checkEmailInput() && checkCityLocation() && checkNumberInput() && checkconditionsInput() && checkCalendarInput()){
     console.log("Tout est ok")
+    modalbg.style.display = "none"
+    alert('Votre formulaire a bien été envoyé')
+
   } else {
     console.log("Il y a un problème")
   }
+
 })
 
 
