@@ -239,7 +239,7 @@ input {
 } */
 
 .first-name-error-message, .last-name-error-message, .number-error-message,
-.email-error-message, .citiesLocation-error-message {
+.email-error-message, .error-message-birthdate, .citiesLocation-error-message, .error-message-conditions {
   font-size: 0.4em;
   color: #e54858;
   margin-top: 7px;

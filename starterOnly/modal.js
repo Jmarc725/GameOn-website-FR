@@ -42,8 +42,14 @@ const emailInputErrorMessage = document.querySelector('.email-error-message')
 const tournamentNumberInput = document.querySelector('#quantity')
 const tournamentNumberErrorMessage = document.querySelector('.number-error-message')
 
+const calendarInput = document.querySelector('#birthdate')
+const calendarErrorMessage = document.querySelector('.error-message-birthdate')
+
 const citiesLocation = document.querySelectorAll('.citiesLocation input')
 const citiesLocationErrorMessage = document.querySelector('.citiesLocation-error-message')
+
+const requiredCheckbox = document.querySelector('#checkbox1')
+const requiredCheckboxErrorMessage = document.querySelector('.error-message-conditions')
 
 
 // Je déclre mes fonctions
@@ -84,19 +90,18 @@ function checkEmailInput() {
 }
 
 
-function checkCityLocation() {
-  let isCityLocationValid = false
+function checkCalendarInput(){
+  let isCalendarValid = false
 
-  for (let i = 0; i < citiesLocation.length; i++) {
-    if (citiesLocation[i].checked) {
-      isCityLocationValid = true
-      citiesLocationErrorMessage.classList.remove('hidden')
-    } else {
-      citiesLocationErrorMessage.classList.add('hidden')
-    }
+  if (calendarInput.checked){
+    isCalendarValid = true
+    calendarErrorMessage.classList.add('hidden')
+  } else {
+    calendarErrorMessage.classList.remove('hidden')
   }
-  return isCityLocationValid
+  return isCalendarValid
 }
+
 
 
 function checkNumberInput(){
@@ -112,18 +117,40 @@ if(isNaN(isNumberValid) && emptyField){
   return isNumberValid
 }
 
-// function errorMessage(){
-//   if (checkFirstName() || checkLastName() || checkEmailInput() || checkCityLocation() || checkNumberInput){
-    
-//   }
-// }
+
+function checkCityLocation() {
+  let isCityLocationValid = false
+
+  for (let i = 0; i < citiesLocation.length; i++) {
+    if (citiesLocation[i].checked) {
+      isCityLocationValid = true
+      citiesLocationErrorMessage.classList.remove('hidden')
+    } else {
+      citiesLocationErrorMessage.classList.add('hidden')
+    }
+  }
+  return isCityLocationValid
+}
+
+
+function checkconditionsInput(){
+  let isConditionsValid = false
+ 
+  if(requiredCheckbox.checked){
+    isConditionsValid = true
+    requiredCheckboxErrorMessage.classList.add('hidden')
+  } else {
+    requiredCheckboxErrorMessage.classList.remove('hidden')
+}
+return isConditionsValid
+}
 
 
 // J'écoute l'évenement submit pour valider mon formulaire
 reservationForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  if (checkFirstName() && checkLastName() && checkEmailInput() && checkCityLocation() && checkNumberInput()){
+  if (checkFirstName() && checkLastName() && checkEmailInput() && checkCityLocation() && checkNumberInput() && checkconditionsInput() && checkCalendarInput()){
     console.log("Tout est ok")
   } else {
     console.log("Il y a un problème")
