@@ -87,6 +87,7 @@ img {
     right: 0;
     top: 0;
   }
+
   .topnav.responsive a {
     float: none;
     display: block;
@@ -115,10 +116,9 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
+.modal-body 
 .modal-btn {
   font-size: 145%;
   background: #fe142f;
@@ -172,6 +172,8 @@ main {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
+
+
 
 .content {
   margin: 5% auto;
@@ -354,6 +356,8 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+    
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -412,6 +416,7 @@ input[data-error]::after {
 }
 
 /* Hide the items when the select box is closed: */
+
 .select-hide {
   display: none;
 }

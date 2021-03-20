@@ -53,7 +53,7 @@ const citiesLocationErrorMessage = document.querySelector('.citiesLocation-error
 const requiredCheckbox = document.querySelector('#checkbox1')
 const requiredCheckboxErrorMessage = document.querySelector('.error-message-conditions')
 
-let succesValidation = "Votre formulaire a bien été envoyé";
+const closeModal = document.querySelector('.modal-body')
 
 
 
@@ -158,7 +158,6 @@ reservationForm.addEventListener('submit', function(event) {
   if (checkFirstName() && checkLastName() && checkEmailInput() && checkCityLocation() && checkNumberInput() && checkconditionsInput() && checkCalendarInput()){
     console.log("Tout est ok")
     modalbg.style.display = "none"
-    alert('Votre formulaire a bien été envoyé')
 
   } else {
     console.log("Il y a un problème")
