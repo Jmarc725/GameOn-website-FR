@@ -11,25 +11,28 @@ function editNav() {
 const modalbg = document.querySelector(".bground")
 const modalBtn = document.querySelectorAll(".modal-btn")
 const formData = document.querySelectorAll(".formData")
-const close = document.querySelector('.close')
+const close = document.querySelector('.close') // Je crée une variable pour sélectionner le span qui fermea la modal
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal))
 
 // launch modal form
 function launchModal() {
-  modalbg.style.display = "block";
+  modalbg.style.display = "block"   // J'affiche  le formulaire
+  reservationForm.style.display = "block"   // Je réactive le formulaire après sa fermeture dès que je relance la modal
+  successMessage.style.display = "none"   // Je masque le message de validation
 }
 
-close.addEventListener('click', () => {
+// J'écoute l'événement click pour fermer la modal
+close.addEventListener('click',function() {
   modalbg.style.display = "none"
 });
 
 
+//-------------------------------------------------------
+
 
 // Je déclare mes variables
-
-
 const firstNameInput = document.querySelector('#first')
 const firstNameErrorMessage = document.querySelector('.first-name-error-message')
 
@@ -52,12 +55,14 @@ const requiredCheckbox = document.querySelector('#checkbox1')
 const requiredCheckboxErrorMessage = document.querySelector('.error-message-conditions')
 
 const reservationForm = document.querySelector('.reservation-form')
-const successForm = document.querySelector('.success-form')
+const successMessage = document.querySelector('.success-message')
 const closeButton = document.querySelector('.btn-close')
 
 
-// Je déclre mes fonctions
+// ---------------------------------------------------------------------------------
 
+
+// Je déclre mes fonctions
 // Fonction validation prénom
 function checkFirstName() {
   const isFirstNameValid = firstNameInput.value.length > 2
@@ -97,7 +102,7 @@ function checkEmailInput() {
 
 // Fonction validation date de calendrier
 function checkCalendarInput(){
-  const isCalendarValid = calendarInput.value;
+  const isCalendarValid = calendarInput.value
 
   if (isCalendarValid){
     calendarErrorMessage.classList.add('hidden')
@@ -106,7 +111,6 @@ function checkCalendarInput(){
   }
   return isCalendarValid
 }
-
 
 // Fonction validation nombre de tournois
 function checkTournamentNumberInput(){
@@ -117,7 +121,6 @@ function checkTournamentNumberInput(){
   } else {
     tournamentNumberErrorMessage.classList.remove('hidden')
   }
-  
   return isNumberValid
 }
 
@@ -128,12 +131,12 @@ function checkCityLocation() {
   for (let i = 0; i < citiesLocation.length; i++) {
     if (citiesLocation[i].checked) {
       isCityLocationValid = true
-      citiesLocationErrorMessage.classList.remove('hidden')
-    } else {
       citiesLocationErrorMessage.classList.add('hidden')
+      return isCityLocationValid
+    } else {
+      citiesLocationErrorMessage.classList.remove('hidden')
     }
   }
-  return isCityLocationValid
 }
 
 // Fonction conditions de vente 
@@ -149,27 +152,26 @@ function checkconditionsInput(){
 return isConditionsValid
 }
 
+// ------------------------------------------------------------------------------
 
 // J'écoute l'évenement submit pour valider mon formulaire
 reservationForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  if (checkFirstName() && checkLastName() && checkEmailInput() && checkCityLocation() && checkTournamentNumberInput() && checkconditionsInput() && checkCalendarInput()){
-    console.log("Tout est ok")
-    reservationForm.style.display = "none"
-    successForm.style.display = "flex"
-
+  if (checkFirstName() && checkLastName() && checkEmailInput() && checkCityLocation() 
+  && checkTournamentNumberInput() && checkconditionsInput() && checkCalendarInput()){
+    console.log("Tout est ok") // Je vérifie dans ma console
+    reservationForm.style.display = "none"  // Je masque le formulaire
+    successMessage.style.display = "flex"  // J'affiche le message de validation
 
   } else {
-    console.log("Il y a un problème")
+    console.log("Il y a un problème") // Je vérifie dans ma console
   }
-
 })
 
-closeButton.addEventListener('click', () => {
-
+// J'écoute l'évenement click pour fermer la modal
+closeButton.addEventListener('click', function() {
 modalbg.style.display = 'none'
-  
 })
 
 
